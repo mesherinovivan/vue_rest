@@ -1,36 +1,35 @@
 <template>
-    <div id="app">
-    <hr/>
-    <h3>Users on Database</h3>
-    <p v-if="users.length === 0">No Messages</p>
-    <div class="msg" v-for="(user, index) in users" :key="index">
-        <p class="msg-index">[{{user.id}}]</p>
-        <p class="msg-subject" v-html="user.username"></p>
-        <input type="submit" @click="deleteUser(user.id)" value="Delete" />
-    </div>
+  <div id="app">
+    <navbar :title="'УППИ'"></navbar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import Vue from 'vue';
+import BootstrapVue from 'bootstrap-vue';
+import Navbar from './components/Navbar';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+
+Vue.use(BootstrapVue)
 
 export default {
-  name: "Users",
-  data() {
-    return {
-      subject: "",
-      msgBody: "",
-    };
+  name: 'app',
+  components: {
+    Navbar,
   },
-  computed: mapState({
-    users: state => state.users.users
-  }),
-  methods: mapActions('users', [
-    'addUser',
-    'deleteUser'
-  ]),
-  created() {
-    this.$store.dispatch('users/getUsers')
-  }
+
+     
 };
 </script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+</style>

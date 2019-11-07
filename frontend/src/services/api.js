@@ -1,14 +1,15 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
 
 
-export default axios.create({
-  baseURL: '/api',
-  xsrfHeaderName : 'X-CSRFToken',
-  xsrfCookieName : 'csrftoken',
-  timeout: 5000,
+const BASE_URL = 'http://localhost:8000/';
+
+
+const api = new axios.create({
+  baseURL: BASE_URL,
   headers: {
-    'Content-Type': 'application/json',
-    'X-CSRFToken': Cookies.get('csrftoken')
+    Authorization: `JWT ${localStorage.getItem('JWT')}`,
   }
-})
+});
+
+
+export default api;

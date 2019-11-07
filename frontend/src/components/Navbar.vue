@@ -1,37 +1,29 @@
 <template>
-  <ul class="navbar" id="navbar">
-    <li><router-link to="/logout">logout</router-link></li>
-    <li><router-link to="/about">about</router-link></li>
-  </ul>
+    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar-brand href="#">{{title}}</b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+         <b-nav-item href="#" to="/post">Link</b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
-export default {
-  name: 'navbar',
-};
+  export default {
+     props: {
+        title: {
+          type: String,
+          required: false,
+        },
+    },
+    data: function () {
+      return {
+        
+      }
+    },
+}
 </script>
-
-<style scoped>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-li {
-  display: inline;
-  float: right;
-}
-a {
-  color: #1a1a1a;
-  display: inline-block;
-  text-align: center;
-  padding: 6px 12px;
-  text-decoration: none;
-  font-size: 14px;
-}
-a:hover {
-  color: #cc0000;
-  text-decoration: none;
-}
-</style>
