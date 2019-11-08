@@ -45,9 +45,6 @@
 					password: this.password,
 				}
                 this.$store.dispatch('auth/login', formData).then(() => this.$router.push('/post'))
-
-                
-                ////this.$store.dispatch('users/getUsers')
 			}
 		}
 	}

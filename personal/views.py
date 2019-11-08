@@ -1,7 +1,9 @@
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group
+from personal.models import User
 from rest_framework import viewsets
 from personal.serializers import UserSerializer, GroupSerializer
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.

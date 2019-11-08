@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'rest_framework_jwt',
+    'personal',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,5 @@ JWT_AUTH = {
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
     'JWT_VERIFY': True,
 }
+
+AUTH_USER_MODEL = 'personal.User'
