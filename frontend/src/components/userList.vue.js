@@ -1,12 +1,7 @@
 "use strict";
-v - ;
-for ( = "(user,key) in users"; ; )
-    : key = "key" > {};
-{
-    user.username;
-}
-/li>
-    < /ul>
+-table;
+small;
+hover: items = "users" > /b-table>
     < button;
 type = "button";
 var default_1 = (function () {

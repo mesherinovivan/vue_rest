@@ -3,7 +3,7 @@
     <b-row>
       <div class="post">
             <b-card
-                title="Card Title"
+                title="Адресная книга"
 
                 tag="article"
                 style="max-width: 250rem;"

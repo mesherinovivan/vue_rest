@@ -16,7 +16,7 @@ var default_1 = (function () {
     }());
 "post" >
     -card;
-title = "Card Title";
+title = "Адресная книга";
 tag = "article";
 style = "max-width: 250rem;";
 var default_2 = (function () {

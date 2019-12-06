@@ -1,8 +1,6 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(user,key) in users" :key="key">{{user}}</li>
-    </ul>
+    <b-table small hover :items="users"></b-table>
     <button type="button" class="btn btn-success btn-sm" v-b-modal.user-modal>Add User</button>
     <user_form :form_id="form_name"></user_form>
   </div>

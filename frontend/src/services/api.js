@@ -1,7 +1,7 @@
 import axios from 'axios'
-import router from '../router';
+// import router from '../router';
 
-const BASE_URL = 'http://localhost:8000/';
+const BASE_URL = 'http://10.27.11.50:8000/';
 
 
 const api = new axios.create({
@@ -11,14 +11,14 @@ const api = new axios.create({
   }
 });
 
-api.interceptors.response.use(undefined, (error) => {
-  if (error.response && error.response.status === 401) {
-    router.replace({
-      path: '/login',
-      query: { redirect: router.currentRoute.fullPath },
-    });
-  }
-  return Promise.reject(error.response.data);
-});
+// api.interceptors.response.use(undefined, (error) => {
+//   if (error.response && error.response.status === 401) {
+//     router.replace({
+//       path: '/login',
+//       query: { redirect: router.currentRoute.fullPath },
+//     });
+//   }
+//   return Promise.reject(error.response.data);
+// });
 
 export default api;

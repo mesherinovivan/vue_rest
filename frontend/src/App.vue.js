@@ -1,26 +1,25 @@
 "use strict";
 id;
-"app" >
-;
-title = "'УППИ'" > /navbar>
-    < router - view > /router-view>
+"app";
+var default_1 = (function () {
+    function default_1() {
+    }
+    return default_1;
+}());
+"wrapper" >
+    -view;
+var default_2 = (function () {
+    function default_2() {
+    }
+    return default_2;
+}());
+"view" > /router-view>
     < /div>
     < /template>
     < script >
 ;
-var vue_1 = require('vue');
-var bootstrap_vue_1 = require('bootstrap-vue');
-var Navbar_1 = require('./components/Navbar');
-require('bootstrap/dist/css/bootstrap.css');
-require('bootstrap-vue/dist/bootstrap-vue.css');
-vue_1.default.use(bootstrap_vue_1.default);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
-    name: 'app',
-    components: {
-        Navbar: Navbar_1.default,
-    },
-};
+exports.default = {};
 /script>
     < style >
 ;
