@@ -1,14 +1,24 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
+// import router from '../router';
+
+const BASE_URL = 'http://10.27.11.50:8000/';
 
 
-export default axios.create({
-  baseURL: '/api',
-  xsrfHeaderName : 'X-CSRFToken',
-  xsrfCookieName : 'csrftoken',
-  timeout: 5000,
+const api = new axios.create({
+  baseURL: BASE_URL,
   headers: {
-    'Content-Type': 'application/json',
-    'X-CSRFToken': Cookies.get('csrftoken')
+    Authorization: `JWT ${localStorage.getItem('JWT')}`,
   }
-})
+});
+
+// api.interceptors.response.use(undefined, (error) => {
+//   if (error.response && error.response.status === 401) {
+//     router.replace({
+//       path: '/login',
+//       query: { redirect: router.currentRoute.fullPath },
+//     });
+//   }
+//   return Promise.reject(error.response.data);
+// });
+
+export default api;

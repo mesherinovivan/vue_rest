@@ -1,36 +1,34 @@
 <template lang="html">
-  <div class="post" v-if="post">
-    <h1 class="post__title">{{ post.title }}</h1>
-    <p class="post__body">{{ post.body }}</p>
-    <p  class="post__id">{{ post.id }}</p>
-  </div>
-</template>
+<b-container class="bv-example-row">
+    <b-row>
+      <div class="post">
+            <b-card
+                title="Адресная книга"
 
+                tag="article"
+                style="max-width: 250rem;"
+                class="mb-2"
+              >
+                <b-card-text>
+                  <UserList></UserList>
+                </b-card-text>
+                
+              </b-card>
+      </div>
+    </b-row>
+</b-container>
+</template>
 <script>
-  import axios from 'axios';
+  import UserList from './userList';
+  
   export default {
-    props: ['id'],
     data() {
       return {
         post: null,
-        endpoint: 'https://jsonplaceholder.typicode.com/posts/',
       }
     },
-    methods: {
-      getPost(id) {
-        axios(this.endpoint + id).then(response => {
-            this.post = response.data
-          })
-      }
+    components: {
+      UserList
     },
-    
-    created() {
-      this.getPost(this.id);
-    },
-    watch: {
-      '$route'() {
-        this.getPost(this.id);
-      }
-    }
   }
 </script>
