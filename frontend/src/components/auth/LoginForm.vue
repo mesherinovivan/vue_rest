@@ -1,14 +1,13 @@
 <template>
 <div class="login-overlay">
     <div class="login-wrapper border border-light">
-        <form class="form-signin" @submit="onSubmit">
+        <form class="form-signin" @submit.prevent="login">
             <h2 class="form-signin-heading">Авторизация</h2>
-            <div class="alert alert-danger" v-if="error">{{ error }}</div>
             <label for="" class="sr-only">User name</label>
             <input v-model="username" required class="form-control sm"  placeholder="Enter username">
             <label for="inputPassword" class="sr-only">Password</label>
             <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <b-button type="submit" @click.prevent="onSubmit"  class="btn btn-lg btn-primary btn-block">Войти</b-button>
+            <b-button type="submit"  class="btn btn-lg btn-primary btn-block">Войти</b-button>
         </form>
 
 	</div>
@@ -16,21 +15,25 @@
 </template>
 
 <script>
+import { AUTH_REQUEST } from "../../store/actions/auth";
+
 	export default {
 		data() {
 			return {
 				username:"",
 				password: '',
-				invalidCredentials: false,
+        invalidCredentials: false,
 			}
 		},
 		methods: {
-			onSubmit() {
-				let formData = {
-					username: this.username,
-					password: this.password,
-				}
-                this.$store.dispatch('auth/login', formData).then(() => this.$router.push('/post'))
+			login() {
+          let formData = {
+            username: this.username,
+            password: this.password,
+          }
+          this.$store.dispatch(AUTH_REQUEST, formData).then(() => {
+            this.$router.push("/");
+          });
 			}
 		}
 	}

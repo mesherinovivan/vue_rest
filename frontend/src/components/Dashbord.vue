@@ -13,6 +13,7 @@
                         <router-link to="/dashboard/post/">Home</router-link>
                     </a>
                 </li>
+                <button @click="get_users()">Тестовая кнопка</button>
             </ul>
         </nav>
 
@@ -80,9 +81,13 @@ export default {
         }),
     },
     methods:{
-      toggle(){
-        this.$store.dispatch('sidebar/toggleSideBar')
-      }
+        toggle(){
+            this.$store.dispatch('sidebar/toggleSideBar');
+        },
+        get_users() {
+             alert(12);
+          this.$store.dispatch('users/getUsers');
+	    }
     }
 }
 </script>

@@ -1,6 +1,5 @@
 import Router from 'vue-router';
 import Vue from 'vue';
-import Post from '../components/Post.vue';
 import Dashbord from '../components/Dashbord.vue';
 import LoginForm from '../components/auth/LoginForm.vue';
 
@@ -15,16 +14,13 @@ const router = new Router({
       path: '*',
       name: 'dashboard',
       component: Dashbord,
-      children: [
-        {path: 'post', component: Post },
-      ],
       meta: {
         requiresAuth: true,
       },
     },
     {
       path: '/login',
-      name: 'Login',
+      name: 'login',
       component: LoginForm,
     }
   ],
