@@ -5,7 +5,7 @@ import {
     AUTH_LOGOUT
   } from "../actions/auth";
 
-////import router from '@/router';
+import router from '@/router';
 import api from '../../services/api' ;
 
 
@@ -31,8 +31,8 @@ const actions = {
             }).then((data) => {      
                         commit(AUTH_SUCCESS, data.data.token);
                         localStorage.setItem('JWT', data.data.token);
-                        api.defaults.headers.common['Authorization'] = `JWT ${localStorage.getItem('JWT')}`
                         resolve(data);
+                        router.push('/');
                         
 
             }).catch(err => {

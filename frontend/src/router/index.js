@@ -2,6 +2,7 @@ import Router from 'vue-router';
 import Vue from 'vue';
 import Dashbord from '../components/Dashbord.vue';
 import LoginForm from '../components/auth/LoginForm.vue';
+import Parent from '../components/lern1/parent.vue';
 
 
 Vue.use(Router);
@@ -17,6 +18,10 @@ const router = new Router({
       meta: {
         requiresAuth: true,
       },
+      children:[{
+        path: 'counter',
+        component: Parent 
+      }]
     },
     {
       path: '/login',

@@ -11,6 +11,7 @@ const api = new axios.create({
   }
 });
 
+////// проверяте, если пришел ответ на запрос 401 то значит ошибка с токеном, нужно залогиниться сново
 api.interceptors.response.use(undefined, (error) => {
   if (error.response && error.response.status === 401) {
     router.replace({
@@ -20,5 +21,12 @@ api.interceptors.response.use(undefined, (error) => {
   }
   return Promise.reject(error.response.data);
 });
+//// Добавляет в каждый запрос JWT token авторизации 
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('JWT');
+  if (token) config.headers.Authorization = `JWT ${localStorage.getItem('JWT')}`;
+  return config
+});
+
 
 export default api;

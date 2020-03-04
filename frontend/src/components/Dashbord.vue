@@ -10,7 +10,7 @@
                 <p></p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" >
-                        <router-link to="/dashboard/post/">Home</router-link>
+                        <router-link to="/dashboard/counter/">Counter</router-link>
                     </a>
                 </li>
                 <button @click="get_users()">Тестовая кнопка</button>
@@ -85,7 +85,6 @@ export default {
             this.$store.dispatch('sidebar/toggleSideBar');
         },
         get_users() {
-             alert(12);
           this.$store.dispatch('users/getUsers');
 	    }
     }
