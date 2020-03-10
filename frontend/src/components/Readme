@@ -1,0 +1,8 @@
+Роуты можно именовать, 
+        path: '/counter',
+        name: 'counter',
+        component: Parent 
+потом в разметке можно обращаться к ним вот так
+ <router-link :to="{name: 'counter'}">Динамические компоненты</router-link>
+
+ 

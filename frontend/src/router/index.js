@@ -3,7 +3,8 @@ import Vue from 'vue';
 import Dashbord from '../components/Dashbord.vue';
 import LoginForm from '../components/auth/LoginForm.vue';
 import Parent from '../components/lern1/parent.vue';
-
+import ParentSlots from '../components/lern2/parent.vue';
+import ParentDymanic from '../components/lern3/parent.vue';
 
 Vue.use(Router);
 
@@ -11,8 +12,8 @@ Vue.use(Router);
 const router = new Router({
   mode: 'history',
   routes: [
-    {
-      path: '*',
+    { 
+      path: '/dashboard',
       name: 'dashboard',
       component: Dashbord,
       meta: {
@@ -20,13 +21,30 @@ const router = new Router({
       },
       children:[{
         path: 'counter',
+        name: 'counter',
         component: Parent 
-      }]
+      },
+      {
+        path: 'slots_lern',
+        name: 'slots_lern',
+        component: ParentSlots 
+      },
+      {
+        path: 'dynamic_lern',
+        name: 'dynamic_lern',
+        component: ParentDymanic 
+      },
+    ]
     },
     {
       path: '/login',
       name: 'login',
       component: LoginForm,
+    },
+    {
+      path: '*',
+      name: 'dashboard',
+      component: Dashbord,
     }
   ],
 });

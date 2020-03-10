@@ -10,7 +10,17 @@
                 <p></p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" >
-                        <router-link to="/dashboard/counter/">Counter</router-link>
+                        <router-link :to="{name: 'counter'}">Counter</router-link>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" >
+                        <router-link :to="{name: 'slots_lern'}">Слоты</router-link>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" >
+                        <router-link :to="{name: 'dynamic_lern'}">Динамические компоненты</router-link>
                     </a>
                 </li>
                 <button @click="get_users()">Тестовая кнопка</button>
