@@ -8,22 +8,18 @@
 
             <ul class="list-unstyled components">
                 <p></p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" >
-                        <router-link :to="{name: 'counter'}">Counter</router-link>
-                    </a>
+                <li>
+                    <router-link tag="a" :to="{name: 'counter'}">Counter</router-link>
                 </li>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" >
-                        <router-link :to="{name: 'slots_lern'}">Слоты</router-link>
-                    </a>
+                <li>
+                   <router-link tag="a" :to="{name: 'slots_lern'}">Слоты</router-link>
+               </li>
+                <li>
+                  <router-link tag="a" :to="{name: 'dynamic_lern'}">Динамические компоненты</router-link>
                 </li>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" >
-                        <router-link :to="{name: 'dynamic_lern'}">Динамические компоненты</router-link>
-                    </a>
+                <li>
+                  <router-link tag="a" :to="{name: 'docs'}">Шаблоны</router-link>
                 </li>
-                <button @click="get_users()">Тестовая кнопка</button>
             </ul>
         </nav>
 
@@ -95,8 +91,8 @@ export default {
             this.$store.dispatch('sidebar/toggleSideBar');
         },
         get_users() {
-          this.$store.dispatch('users/getUsers');
-	    }
+            this.$store.dispatch('users/getUsers');
+        }
     }
 }
 </script>
@@ -107,5 +103,8 @@ export default {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       color: #2c3e50;
+    }
+    a{
+        color: aliceblue;
     }
 </style>

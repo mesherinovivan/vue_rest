@@ -5,6 +5,7 @@ import LoginForm from '../components/auth/LoginForm.vue';
 import Parent from '../components/lern1/parent.vue';
 import ParentSlots from '../components/lern2/parent.vue';
 import ParentDymanic from '../components/lern3/parent.vue';
+import DocsView from '../components/docs/docsView.vue';
 
 Vue.use(Router);
 
@@ -34,6 +35,11 @@ const router = new Router({
         name: 'dynamic_lern',
         component: ParentDymanic 
       },
+      {
+        path: 'docs',
+        name: 'docs',
+        component: DocsView 
+      },
     ]
     },
     {
@@ -45,6 +51,9 @@ const router = new Router({
       path: '*',
       name: 'dashboard',
       component: Dashbord,
+      meta: {
+        requiresAuth: true,
+      },
     }
   ],
 });

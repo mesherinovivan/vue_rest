@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_jwt',
     'personal',
+    'docs',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.media',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -148,5 +150,7 @@ JWT_AUTH = {
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
     'JWT_VERIFY': True,
 }
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'uploads')
+MEDIA_URL = '/uploads/'
 
 AUTH_USER_MODEL = 'personal.User'
