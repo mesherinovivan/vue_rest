@@ -4,7 +4,8 @@ import docsService from '../../services/docsService'
 
 const state = {
   templates: [],
-  htmlForm: ""
+  htmlForm: "",
+  link: ""
 }
 
 const getters = {
@@ -24,7 +25,16 @@ const actions = {
     })
   },
   getHtmlForm ({ commit },id) {
-      commit('setHtmlForm', `<div>${id}</div>`);
+    docsService.getHtmlForm(id)
+    .then(html => {
+      commit('setHtmlForm', html);
+    })
+  },
+  download({ commit },payload) {
+    docsService.download(payload[0],payload[1])
+    .then(link => {
+      commit('setLink', link);
+    });
   },
 }
 
@@ -32,8 +42,14 @@ const mutations = {
   setTemplates (state, templates) {
     state.templates = templates
   },
+  setLink (state, link) {
+    state.link = link
+  },
   setHtmlForm (state, htmlForm) {
-    state.htmlForm = htmlForm
+    state.htmlForm = htmlForm.replace(
+      /\{\{(\w+)\}\}/g,
+      '<input ref="$1" placeholder="$1">'
+    );
   },
   
 }

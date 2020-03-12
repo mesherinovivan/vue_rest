@@ -150,7 +150,7 @@ JWT_AUTH = {
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
     'JWT_VERIFY': True,
 }
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'uploads')
-MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media','uploads')
+MEDIA_URL = 'media/uploads/'
 
 AUTH_USER_MODEL = 'personal.User'
